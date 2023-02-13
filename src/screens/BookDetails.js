@@ -12,6 +12,7 @@ import {FONTS, COLORS, SIZES} from '../../constant';
 import {format, parseISO} from 'date-fns';
 import {DEFAULT_IMAGE} from './Home';
 import BackButton from '../components/BackButton/BackButton';
+import Header from '../components/Header';
 
 const LineDivider = () => {
   return (
@@ -159,29 +160,7 @@ const BookDetail = ({route, navigation}) => {
   if (book) {
     return (
       <View style={[styles.bookContainer, {backgroundColor: COLORS.black}]}>
-        <View
-          style={{
-            flexDirection: 'row',
-            paddingHorizontal: SIZES.base,
-            height: 80,
-            alignItems: 'flex-end',
-            backgroundColor: 'black',
-          }}>
-          <View>
-            <BackButton onPress={() => navigation.goBack()} />
-          </View>
-          <View
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: 18,
-            }}>
-            <Text style={{...FONTS.h1, color: COLORS.white}}>
-              Book Detail's
-            </Text>
-          </View>
-        </View>
+       <Header/>
         <View style={{flex: 4}}>{renderBookInfoSection()}</View>
         <View
           style={{
