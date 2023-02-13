@@ -160,16 +160,10 @@ const BookDetail = ({route, navigation}) => {
   if (book) {
     return (
       <View style={[styles.bookContainer, {backgroundColor: COLORS.black}]}>
-       <Header/>
+        <Header />
         <View style={{flex: 4}}>{renderBookInfoSection()}</View>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: COLORS.gray4,
-          }}>
-          <Text style={{...FONTS.h1, color: COLORS.white}}>
+        <View style={styles.descriptionView}>
+          <Text style={{...FONTS.h2, color: COLORS.white, paddingTop: 4}}>
             Title: {book.title}
           </Text>
           <Text style={styles.valueStyle}>Status: {book.status}</Text>
@@ -239,5 +233,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: SIZES.padding,
+  },
+  descriptionView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.gray4,
   },
 });
