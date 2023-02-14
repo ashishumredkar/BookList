@@ -1,8 +1,10 @@
 # BookList
 App used to show list of book and its details.
+Currently showing the list of demo data.
+
 Steps to run the project:
 
-Clone the project from https://github.com/ashishumredkar/BookList.git
+Clone/download the project from https://github.com/ashishumredkar/BookList.git
 Checkout to master
 Goto project directory
 Run npm install

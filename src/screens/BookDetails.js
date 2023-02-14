@@ -11,25 +11,11 @@ import {
 import {FONTS, COLORS, SIZES} from '../../constant';
 import {format, parseISO} from 'date-fns';
 import {DEFAULT_IMAGE} from './Home';
-import BackButton from '../components/BackButton/BackButton';
 import Header from '../components/Header';
-
-const LineDivider = () => {
-  return (
-    <View style={{width: 1, paddingVertical: 5}}>
-      <View
-        style={{
-          flex: 1,
-          borderLeftColor: COLORS.lightGray2,
-          borderLeftWidth: 1,
-        }}></View>
-    </View>
-  );
-};
+import LineDivider from '../components/LineDivider';
 
 const BookDetail = ({route, navigation}) => {
   const [book, setBook] = useState(null);
-
   const [scrollViewWholeHeight, setScrollViewWholeHeight] = useState(1);
   const [scrollViewVisibleHeight, setScrollViewVisibleHeight] = useState(0);
   const [publishedDate, setPublishedDate] = useState('NA');

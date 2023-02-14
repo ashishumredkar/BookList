@@ -28,11 +28,11 @@ export const SIZES = {
     // global sizes
     base: 8,
     font: 14,
+    font_18: 18,
     radius: 12,
     padding_10: 10,
     padding: 24,
     padding2: 36,
-
     // font sizes
     largeTitle: 50,
     h1: 30,
@@ -43,8 +43,6 @@ export const SIZES = {
     body2: 20,
     body3: 16,
     body4: 14,
-
-    // app dimensions
     width,
     height
 };

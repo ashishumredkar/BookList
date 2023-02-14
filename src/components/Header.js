@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { memo, useMemo } from 'react';
+import React, { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { COLORS, FONTS, SIZES } from '../../constant';
 import BackButton from './BackButton/BackButton';
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         paddingHorizontal: SIZES.base,
-        height: 80,
+        height: 70,
         alignItems: 'flex-end',
         backgroundColor: 'black',
     },
