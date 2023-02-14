@@ -2,77 +2,24 @@ import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
-  ImageBackground,
-  Image,
   ScrollView,
   Animated,
   StyleSheet,
 } from 'react-native';
 import {FONTS, COLORS, SIZES} from '../../constant';
-import {format, parseISO} from 'date-fns';
-import {DEFAULT_IMAGE} from './Home';
 import Header from '../components/Header';
-import LineDivider from '../components/LineDivider';
+import BookInfoSection from './BookInfoSection';
 
-const BookDetail = ({route, navigation}) => {
+const BookDetail = ({route}) => {
   const [book, setBook] = useState(null);
   const [scrollViewWholeHeight, setScrollViewWholeHeight] = useState(1);
   const [scrollViewVisibleHeight, setScrollViewVisibleHeight] = useState(0);
-  const [publishedDate, setPublishedDate] = useState('NA');
   const indicator = new Animated.Value(0);
-
-  const getPublishDate = date => {
-    return format(parseISO(date), 'MMM dd,yyyy');
-  };
 
   useEffect(() => {
     let {book} = route.params;
     setBook(book);
-    book.publishedDate &&
-      setPublishedDate(getPublishDate(book?.publishedDate?.$date));
   }, [book]);
-
-  const renderBookInfoSection = () => {
-    return (
-      <View style={styles.bookContainer}>
-        <ImageBackground
-          source={{uri: book.thumbnailUrl ?? DEFAULT_IMAGE}}
-          resizeMode="cover"
-          style={styles.sectionContainer}
-        />
-        <View style={styles.dummyImage}>
-          <Image
-            source={{uri: book.bookHower}}
-            resizeMode="contain"
-            style={styles.imageStyle}
-          />
-        </View>
-
-        <View style={styles.rowContiner}>
-          <View style={styles.childRowContainer}>
-            <Text style={styles.valueStyle}>{publishedDate}</Text>
-            <Text style={styles.valueTitleStyle}>Published Date</Text>
-          </View>
-          <LineDivider />
-          <View
-            style={[
-              styles.childRowContainer,
-              {paddingHorizontal: SIZES.radius},
-            ]}>
-            <Text style={styles.valueStyle}>{book.pageCount}</Text>
-            <Text style={styles.valueTitleStyle}>Page count</Text>
-          </View>
-          <LineDivider />
-          <View style={styles.childRowContainer}>
-            <Text style={styles.valueStyle} numberOfLines={1}>
-              {book.isbn}
-            </Text>
-            <Text style={styles.valueTitleStyle}>ISBN</Text>
-          </View>
-        </View>
-      </View>
-    );
-  };
 
   const renderBookDescription = () => {
     const indicatorSize =
@@ -88,7 +35,7 @@ const BookDetail = ({route, navigation}) => {
 
     return (
       <View style={styles.bookDescrContainer}>
-        <View style={{width: 4, height: '100%', backgroundColor: COLORS.gray1}}>
+        <View style={styles.childBookDescription}>
           <Animated.View
             style={{
               width: 4,
@@ -147,9 +94,11 @@ const BookDetail = ({route, navigation}) => {
     return (
       <View style={[styles.bookContainer, {backgroundColor: COLORS.black}]}>
         <Header />
-        <View style={{flex: 4}}>{renderBookInfoSection()}</View>
+        <View style={{flex: 4}}>
+            <BookInfoSection book={book}/>
+            </View>
         <View style={styles.descriptionView}>
-          <Text style={{...FONTS.h2, color: COLORS.white, paddingTop: 4}}>
+          <Text style={styles.title}>
             Title: {book.title}
           </Text>
           <Text style={styles.valueStyle}>Status: {book.status}</Text>
@@ -178,6 +127,9 @@ export default BookDetail;
 const styles = StyleSheet.create({
   bookContainer: {
     flex: 1,
+  },
+  childBookDescription:{
+    width: 4, height: '100%', backgroundColor: COLORS.gray1
   },
   sectionContainer: {
     position: 'absolute',
@@ -226,4 +178,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: COLORS.gray4,
   },
+  title:{
+    ...FONTS.h2, color: COLORS.white, paddingTop: 4
+  }
 });

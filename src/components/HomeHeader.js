@@ -1,11 +1,10 @@
-import React, { memo } from 'react';
+import React, {memo} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {COLORS, FONTS, SIZES} from '../../constant';
 const HomeHeader = () => {
   const profileData = {
     name: 'Asurion Japan',
   };
-
   return (
     <View style={styles.headerStyle}>
       <View style={{flex: 1}}>
@@ -18,7 +17,6 @@ const HomeHeader = () => {
   );
 };
 export default memo(HomeHeader);
-
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',

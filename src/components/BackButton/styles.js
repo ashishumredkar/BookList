@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-
 const styles = StyleSheet.create({
   btnContainer: {
     flex: 1,
@@ -14,5 +13,4 @@ const styles = StyleSheet.create({
     tintColor: 'white'
   }
 });
-
 export default styles;
