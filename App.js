@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { BookDetail, Home } from './src/screens';
 const Stack = createStackNavigator();

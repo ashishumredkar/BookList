@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     paddingHorizontal: SIZES.base,
-    height: 70,
+    height: 80,
     alignItems: 'flex-end',
     backgroundColor: 'black',
   },
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 18,
+    marginBottom: 5,
   },
   sectionDescription: {
     marginTop: 8,
