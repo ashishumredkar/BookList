@@ -3,7 +3,6 @@ import {ScrollView, StyleSheet, Text, View,Animated} from 'react-native';
 import {COLORS, FONTS, SIZES} from '../../constant';
 const BookDescription = (props) => {
     const{description}=props;
-    console.log('BookDescription',description)
     const [scrollViewWholeHeight, setScrollViewWholeHeight] = useState(1);
     const [scrollViewVisibleHeight, setScrollViewVisibleHeight] = useState(0);
     const indicator = new Animated.Value(0);
