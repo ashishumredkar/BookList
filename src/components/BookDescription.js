@@ -67,7 +67,7 @@ const BookDescription = (props) => {
         }}>
         Description
       </Text>
-      <Text style={{...FONTS.body2, color: COLORS.lightGray}}>
+      <Text style={styles.bookTitleDescription}>
         {description ?? 'No Description Provided by Author!!!'}
       </Text>
     </ScrollView>
@@ -133,6 +133,9 @@ const styles = StyleSheet.create({
     },
     title:{
       ...FONTS.h2, color: COLORS.white, paddingTop: 4
+    },
+    bookTitleDescription:{
+      ...FONTS.body2, color: COLORS.lightGray
     }
   });
   

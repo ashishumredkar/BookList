@@ -103,10 +103,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: COLORS.gray4,
+    marginTop:5
   },
   title: {
     ...FONTS.h2,
     color: COLORS.white,
-    paddingTop: 4,
+    paddingTop: 8,
   },
 });

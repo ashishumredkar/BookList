@@ -49,7 +49,7 @@ const BookInfoSection = (props) => {
           <Text style={styles.valueTitleStyle}>Page count</Text>
         </View>
         <LineDivider />
-        {book.isbn.length>0 &&<View style={styles.childRowContainer}>
+        {book.isbn?.length>0 &&<View style={styles.childRowContainer}>
           <Text style={styles.valueStyle} numberOfLines={1}>
             {book.isbn}
           </Text>
