@@ -1,16 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, Animated, StyleSheet} from 'react-native';
+import {View, Text,StyleSheet} from 'react-native';
 import {FONTS, COLORS, SIZES} from '../../constant';
 import BookDesription from '../components/BookDescription';
-import Header from '../components/Header';
 import BookInfoSection from './BookInfoSection';
 
 const BookDetail = ({route}) => {
   const [book, setBook] = useState(null);
-  const [scrollViewWholeHeight, setScrollViewWholeHeight] = useState(1);
-  const [scrollViewVisibleHeight, setScrollViewVisibleHeight] = useState(0);
-  const indicator = new Animated.Value(0);
-
   useEffect(() => {
     let {book} = route.params;
     setBook(book);
@@ -19,7 +14,6 @@ const BookDetail = ({route}) => {
   if (book) {
     return (
       <View style={[styles.bookContainer, {backgroundColor: COLORS.black}]}>
-        <Header />
         <View style={{flex: 4}}>
           <BookInfoSection book={book} />
         </View>

@@ -12,28 +12,12 @@ const BookInfoSection = (props) => {
       setPublishedDate(getPublishDate(book?.publishedDate?.$date));
   }, [book]);
 
-  // const getPublishDate = (date) => {
-  //   return format(parseISO(date), 'yyyy/MM/dd');
-  // };
   const getPublishDate=(strDate)=>{
-    let date2 = new Date(strDate);
-    console.log('date33',date2);
-
-    var strSplitDate = String(strDate).split(' ');
-    var date = new Date(strSplitDate[0]);
-    // alert(date);
-    var dd = date.getDate();
-    var mm = date.getMonth() + 1; //January is 0!
-
-    var yyyy = date.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd;
+    if(strDate.length<0){
+      return undefined;
     }
-    if (mm < 10) {
-        mm = '0' + mm;
-    }
-    date =  dd + "-" + mm + "-" + yyyy;
-    return date.toString();
+    const date= strDate.split('T') 
+    return date[0].toString() ?? undefined;
 }
 
 
@@ -53,23 +37,25 @@ const BookInfoSection = (props) => {
       </View>
 
       <View style={styles.rowContiner}>
-        <View style={styles.childRowContainer}>
+        {publishedDate.length > 0 && <View style={styles.childRowContainer}>
           <Text style={styles.valueStyle}>{publishedDate}</Text>
           <Text style={styles.valueTitleStyle}>Published Date</Text>
         </View>
-        <LineDivider />
+        }
+      {publishedDate.length > 0 &&<LineDivider/>}
         <View
           style={[styles.childRowContainer, {paddingHorizontal: SIZES.radius}]}>
           <Text style={styles.valueStyle}>{book.pageCount}</Text>
           <Text style={styles.valueTitleStyle}>Page count</Text>
         </View>
         <LineDivider />
-        <View style={styles.childRowContainer}>
+        {book.isbn.length>0 &&<View style={styles.childRowContainer}>
           <Text style={styles.valueStyle} numberOfLines={1}>
             {book.isbn}
           </Text>
           <Text style={styles.valueTitleStyle}>ISBN</Text>
         </View>
+        } 
       </View>
     </View>
   );

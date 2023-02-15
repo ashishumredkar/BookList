@@ -19,7 +19,13 @@ const App = () => {
         component={Home}
         options={{headerShown: false,}}
       />
-      <Stack.Screen name="BookDetails" component={BookDetail}  options={{title: 'BookDetails',headerShown: false,}}/>
+      <Stack.Screen name="BookDetails" component={BookDetail}  options={{title: 'BookDetails',headerShown: true, headerStyle: {
+            backgroundColor: 'black',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },}}/>
     </Stack.Navigator>
   </NavigationContainer>
   );
